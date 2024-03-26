@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Mimictf</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='fonts/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/Navbar-Right-Links-Dark-icons.css') }}">
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                                     <th style="border-width: 2px;">Название</th>
                                     <th style="border-width: 2px;">Категория</th>
                                     <th style="border-width: 2px;">Очки</th>
-                                    <th style="border-width: 2px;">Статус</th>
+                                    <th style="border-width: 2px;">Удалить?</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,21 +60,21 @@
                                     <td><a href="edit_task.html">Task 1</a></td>
                                     <td>Wi-Fi</td>
                                     <td>100</td>
-                                    <td>Решено</td>
+                                    <td><a href="{{ url_for('remove_task') }}">Удалить</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td><a href="edit_task.html">Task 2</a></td>
                                     <td>PPC</td>
                                     <td>100</td>
-                                    <td>Решено</td>
+                                    <td><a href="{{ url_for('remove_task') }}">Удалить</a></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td><a href="edit_task.html">Task 3</a></td>
                                     <td>Network</td>
                                     <td>100</td>
-                                    <td>Не решено</td>
+                                    <td><a href="{{ url_for('remove_task') }}">Удалить</a></td>
                                 </tr>
                             </tbody>
                         </table>

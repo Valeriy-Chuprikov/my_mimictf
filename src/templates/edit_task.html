@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Mimictf</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='fonts/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/Navbar-Right-Links-Dark-icons.css') }}">
 </head>
 
 <body>
@@ -28,19 +28,47 @@
             </div>
             <div class="row" style="margin-top: 10px;">
                 <div class="col">
-                    <form class="d-flex flex-column">
-                        <p style="width: 100%;"><label class="form-label d-flex align-items-center" style="width: 80%;font-size: 18px;">Название:&nbsp;<input class="border-dark shadow-none form-control" type="text" placeholder="Введите название"></label></p>
-                        <p style="width: 100%;"><label class="form-label d-flex align-items-center" style="width: 80%;font-size: 18px;">Баллы:&nbsp;<input class="border-dark shadow-none form-control" type="text" placeholder="Введите количество баллов"></label></p>
-                        <p style="width: 100%;"><label class="form-label d-flex align-items-center" style="width: 80%;font-size: 18px;">Категория:&nbsp;<input class="border-dark shadow-none form-control" type="text" placeholder="Введите категорию"></label></p>
-                        <p style="width: 100%;"><label class="form-label d-flex align-items-center" style="width: 80%;font-size: 18px;">Формулировка:&nbsp;<input class="border-dark shadow-none form-control" type="text" placeholder="Введите формулировку"></label></p>
-                        <p style="width: 100%;"><label class="form-label d-flex align-items-center" style="width: 80%;font-size: 18px;">Флаг:&nbsp;<input class="border-dark shadow-none form-control" type="text" placeholder="Введите флаг"></label></p>
-                        <div style="width: 100%;text-align: center;"><a class="btn btn-primary" role="button" style="margin-right: 10px;width: 25%;min-width: fit-content;background: rgb(30,30,30);" href="task.html">Отмена</a><a class="btn btn-primary" role="button" style="margin-left: 10px;width: 25%;min-width: fit-content;background: rgb(80,80,80);" href="task.html">Сохранить</a></div>
+                    <form class="d-flex flex-column" method="post">
+
+                        {{ form.csrf_token() }}
+
+                        <p style="width: 100%;">
+                            {{ form.title.label(class="form-label d-flex align-items-center", style="width: 80%;font-size: 18px;") }}
+                            {{ form.title(class="border-dark shadow-none form-control", type="text", placeholder="Введите название") }}
+                        </p>
+                        
+                        <p style="width: 100%;">
+                            {{ form.points.label(class="form-label d-flex align-items-center", style="width: 80%;font-size: 18px;") }}
+                            {{ form.points(class="border-dark shadow-none form-control", type="text", placeholder="Введите количество баллов") }}
+                        </p>
+
+                        <p style="width: 100%;">
+                            {{ form.category.label(class="form-label d-flex align-items-center", style="width: 80%;font-size: 18px;") }}
+                            {{ form.category(class="border-dark shadow-none form-control", type="text", placeholder="Введите категорию") }}
+                        </p>
+
+                        <p style="width: 100%;">
+                            {{ form.content.label(class="form-label d-flex align-items-center", style="width: 80%;font-size: 18px;") }}
+                            {{ form.content(class="border-dark shadow-none form-control", type="text", placeholder="Введите формулировку") }}
+                        </p>
+
+                        <p style="width: 100%;">
+                            {{ form.flag.label(class="form-label d-flex align-items-center", style="width: 80%;font-size: 18px;") }}
+                            {{ form.flag(class="border-dark shadow-none form-control", type="text", placeholder="Введите флаг") }}
+                        </p>
+
+                        <div style="width: 100%;text-align: center;">
+                            <a class="btn btn-primary" role="button" style="margin-right: 10px;width: 25%;min-width: fit-content;background: rgb(30,30,30);">
+                                Отмена
+                            </a>
+                            {{ form.submit(class="btn btn-primary shadow-none", role="button", style="margin-left: 10px;width: 25%;min-width: fit-content;background: rgb(80,80,80);") }}
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>

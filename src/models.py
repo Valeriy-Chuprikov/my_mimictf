@@ -28,6 +28,7 @@ class Competition(db.Model):
     organizer_name = db.Column(db.String(255), db.ForeignKey('users.name'))
     tasks = db.relationship('Task', backref='competition')
     participants_info = db.relationship('Participant', backref='competition')
+    participants_count = db.Column(db.Integer())
     tasks_count = db.Column(db.Integer())
     points_count = db.Column(db.Integer())
     invite_ref = db.Column(db.String(255))
